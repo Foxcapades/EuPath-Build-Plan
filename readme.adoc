@@ -1,8 +1,9 @@
 = Build System
+:icons: font
 ifdef::env-github[]
 :warning-caption: ⚠
 endif::[]
-:toc: right
+:toc: left
 :url-home: https://github.com/Foxcapades/Build-Plan
 Elizabeth Harper <epharper@upenn.edu>
 
