@@ -1,8 +1,15 @@
 = Build System
+ifdef::env-github[]
 :warning-caption: ⚠
+endif::[]
+:toc: right
+:url-home: https://github.com/Foxcapades/Build-Plan
+Elizabeth Harper <epharper@upenn.edu>
+
+
 
 Document Render: https://foxcapades.github.io/Build-Plan/readme.html +
-Document Source: https://github.com/Foxcapades/Build-Plan
+Document Source: {url-home}
 
 == Goals
 
