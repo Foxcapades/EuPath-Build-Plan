@@ -496,7 +496,7 @@ Document Source: <a href="https://github.com/Foxcapades/EuPath-Build-Plan" class
 <p>Break apart the monolith build</p>
 </li>
 <li>
-<p>Simplify/Unify our builds</p>
+<p>Simplify/Unify our build scripts</p>
 </li>
 <li>
 <p>Separate build from deployment</p>
@@ -514,8 +514,8 @@ Document Source: <a href="https://github.com/Foxcapades/EuPath-Build-Plan" class
 <div class="sect2">
 <h3 id="_part_1_maven_to_gradle">Part 1: Maven to Gradle</h3>
 <div class="paragraph">
-<p>Exchange the maven pom files for gradle builds.  Parts of
-the ant build that call to maven will now call to gradle.</p>
+<p>Exchange the maven pom files for Gradle builds.  Parts of
+the Ant build that call to maven will now call to Gradle.</p>
 </div>
 <div class="paragraph">
 <p>Gradle projects will declare their project dependencies and
@@ -523,14 +523,11 @@ the build should function similarly to the previous build
 system.</p>
 </div>
 <div class="paragraph">
-<p>The base-pom file will be converted to a Gradle
-<code>java-platform</code> which is a mechanism that can be used to
-declare/constrain dependency versions to a known working
-set.</p>
+<p>The base-pom file will be converted to a Gradle <a href="#javaPlat"><code>java-platform</code></a> Bill of Materials.</p>
 </div>
 <div class="paragraph">
 <p>Boilerplate details, such as developer information or custom
-artifact repositories will be extracted to a gradle plugin
+artifact repositories will be extracted to a Gradle plugin
 which can be published to a Maven repository.</p>
 </div>
 <div class="paragraph">
@@ -542,18 +539,19 @@ only affect users in that the log output will be different.</p>
 <div class="sect2">
 <h3 id="_part_2_ant_to_gradle">Part 2: Ant to Gradle</h3>
 <div class="paragraph">
-<p>Convert the build xml declarations into gradle actions.</p>
+<p>Convert the build XML declarations into Gradle actions.</p>
 </div>
 <div class="paragraph">
 <p>At this point, custom scripts will be left alone, calls to
-them will be maintained, and converted to calls from gradle.</p>
+them will be maintained, and converted to calls from Gradle.</p>
 </div>
 <div class="paragraph">
 <p>Most Ant actions or behaviors are available easily in Gradle
-or can be easily recreated as a function in Gradle.  If such
-functions exist they will be written into a Gradle plugin
-which will be published to our internal Maven repository to
-be made available to all projects.</p>
+or can be easily recreated as a function in Gradle.  Any Ant
+functions we rely on which have no built-in mirror in Gradle
+will be made into a plugin which will be published to our
+internal Maven repository to be made available to all
+projects.</p>
 </div>
 </div>
 <div class="sect2">
@@ -571,7 +569,7 @@ which can be published to our internal repository.</p>
 <div class="sect2">
 <h3 id="_part_4_split_the_monolith">Part 4: Split the monolith</h3>
 <div class="paragraph">
-<p>Take each project&#8217;s gradle build and convert it&#8217;s dependency
+<p>Take each project&#8217;s Gradle build and convert it&#8217;s dependency
 on sibling projects into artifact dependencies with
 <a href="#condSubst">Conditional Substitution</a>.</p>
 </div>
@@ -609,7 +607,7 @@ update these dependencies.</p>
 <p>With Perl we have a couple of options available to us we can
 use a private CPAN repository, or alternatively, we can
 split the Perl code into separate git repositories and
-depend on it via git itself.</p>
+depend on it &lt;&lt;<a href="https://metacpan.org/pod/distribution/App-cpanminus/bin/cpanm,via" class="bare">https://metacpan.org/pod/distribution/App-cpanminus/bin/cpanm,via</a> git itself&gt;&gt;.</p>
 </div>
 <div class="sect5">
 <h6 id="_versioning">Versioning</h6>
@@ -623,10 +621,10 @@ versioning strategy.</p>
 </div>
 </div>
 <div class="sect4">
-<h5 id="_javascripttypescript">Javascript/Typescript</h5>
+<h5 id="_javascripttypescript">JavaScript/TypeScript</h5>
 <div class="paragraph">
 <p>This is already handled for us via NPM or Yarn.  Similarly
-to Perl, we may desire to host our Javascript &amp; Typescript
+to Perl, we may desire to host our JavaScript &amp; TypeScript
 code in a private NPM repository, or split that code out and
 just use git.</p>
 </div>
@@ -649,6 +647,21 @@ TODO
 </div>
 <div class="sect3">
 <h4 id="_c">C</h4>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+TODO
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_python">Python</h4>
 <div class="admonitionblock warning">
 <table>
 <tr>
@@ -879,7 +892,7 @@ to this internal repository.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_javascriptnpm">Javascript/NPM</h4>
+<h4 id="_javascriptnpm">JavaScript/NPM</h4>
 <div class="paragraph">
 <p>Not required, but may be helpful down the road, front end
 team can discuss and decide what needs, if any, this could
@@ -947,6 +960,25 @@ dependency with another if some condition is met.</p>
 instead of an artifact if that project exists in your
 workspace.</p>
 </div>
+<div class="paragraph">
+<p>See <a href="https://medium.com/codequest/Gradle-multi-project-build-substituting-jar-dependencies-with-local-projects-4a5323f8680b">this blog post</a>, or <a href="https://docs.Gradle.org/current/userguide/customizing_dependency_resolution_behavior.html">the
+Gradle docs</a> for a more detailed explanation.</p>
+</div>
+</dd>
+<dt class="hdlist1"><a id="javaPlat"></a>Java Platform</dt>
+<dd>
+<p>The Gradle method of creating a Bill of Materials for a
+project or group of projects.</p>
+<div class="paragraph">
+<p>The Java Platform can be used to define and/or constrain
+projects to a known working set of dependencies.  Similar to
+our base-pom files, our dependency versions can be declared
+here and omitted from individual project dependency
+declarations.</p>
+</div>
+<div class="paragraph">
+<p>See <a href="https://docs.gradle.org/current/userguide/java_platform_plugin.html">the Gradle docs</a> for more information.</p>
+</div>
 </dd>
 </dl>
 </div>
@@ -955,7 +987,7 @@ workspace.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2019-09-04 12:11:09 -0400
+Last updated 2019-09-04 13:30:08 -0400
 </div>
 </div>
 </body>

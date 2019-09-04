@@ -4,19 +4,25 @@ ifdef::env-github[]
 :warning-caption: ⚠
 endif::[]
 :toc: left
-:url-home: https://github.com/Foxcapades/EuPath-Build-Plan
 Elizabeth Harper <epharper@upenn.edu>
 
+// External URLS
+:condSubstBlog: https://medium.com/codequest/Gradle-multi-project-build-substituting-jar-dependencies-with-local-projects-4a5323f8680b
+:condSubstDocs: https://docs.Gradle.org/current/userguide/customizing_dependency_resolution_behavior.html
+:docSrc: https://github.com/Foxcapades/EuPath-Build-Plan
+:docPage: https://foxcapades.github.io/EuPath-Build-Plan/readme.html
+:javaPlatDocs: https://docs.gradle.org/current/userguide/java_platform_plugin.html
 
 
-Document Render: https://foxcapades.github.io/EuPath-Build-Plan/readme.html +
-Document Source: {url-home}
+
+Document Render: {docPage} +
+Document Source: {docSrc}
 
 == Goals
 
 1. Modernize our build process
 2. Break apart the monolith build
-3. Simplify/Unify our builds
+3. Simplify/Unify our build scripts
 4. Separate build from deployment
 5. Separate build from version control
 
@@ -26,20 +32,18 @@ Document Source: {url-home}
 
 === Part 1: Maven to Gradle
 
-Exchange the maven pom files for gradle builds.  Parts of
-the ant build that call to maven will now call to gradle.
+Exchange the maven pom files for Gradle builds.  Parts of
+the Ant build that call to maven will now call to Gradle.
 
 Gradle projects will declare their project dependencies and
 the build should function similarly to the previous build
 system.
 
-The base-pom file will be converted to a Gradle
-`java-platform` which is a mechanism that can be used to
-declare/constrain dependency versions to a known working
-set.
+The base-pom file will be converted to a Gradle <<javaPlat,
+`java-platform`>> Bill of Materials.
 
 Boilerplate details, such as developer information or custom
-artifact repositories will be extracted to a gradle plugin
+artifact repositories will be extracted to a Gradle plugin
 which can be published to a Maven repository.
 
 This conversion is almost 1 to 1 and wil be tedious, but
@@ -49,16 +53,17 @@ only affect users in that the log output will be different.
 
 === Part 2: Ant to Gradle
 
-Convert the build xml declarations into gradle actions.
+Convert the build XML declarations into Gradle actions.
 
 At this point, custom scripts will be left alone, calls to
-them will be maintained, and converted to calls from gradle.
+them will be maintained, and converted to calls from Gradle.
 
 Most Ant actions or behaviors are available easily in Gradle
-or can be easily recreated as a function in Gradle.  If such
-functions exist they will be written into a Gradle plugin
-which will be published to our internal Maven repository to
-be made available to all projects.
+or can be easily recreated as a function in Gradle.  Any Ant
+functions we rely on which have no built-in mirror in Gradle
+will be made into a plugin which will be published to our
+internal Maven repository to be made available to all
+projects.
 
 
 === Part 3: Scripts to Gradle
@@ -73,7 +78,7 @@ which can be published to our internal repository.
 
 === Part 4: Split the monolith
 
-Take each project's gradle build and convert it's dependency
+Take each project's Gradle build and convert it's dependency
 on sibling projects into artifact dependencies with
 <<#condSubst,Conditional Substitution>>.
 
@@ -105,7 +110,7 @@ update these dependencies.
 With Perl we have a couple of options available to us we can
 use a private CPAN repository, or alternatively, we can
 split the Perl code into separate git repositories and
-depend on it via git itself.
+depend on it <<https://metacpan.org/pod/distribution/App-cpanminus/bin/cpanm,via git itself>>.
 
 ====== Versioning
 
@@ -115,10 +120,10 @@ maintain releases or different versions.  Using a private
 CPAN repository, we would need to come up with a concrete
 versioning strategy.
 
-===== Javascript/Typescript
+===== JavaScript/TypeScript
 
 This is already handled for us via NPM or Yarn.  Similarly
-to Perl, we may desire to host our Javascript & Typescript
+to Perl, we may desire to host our JavaScript & TypeScript
 code in a private NPM repository, or split that code out and
 just use git.
 
@@ -127,6 +132,10 @@ just use git.
 WARNING: TODO
 
 ==== C
+
+WARNING: TODO
+
+==== Python
 
 WARNING: TODO
 
@@ -266,7 +275,7 @@ intended for mass use, we could publish all our artifacts
 to this internal repository.
 
 
-==== Javascript/NPM
+==== JavaScript/NPM
 
 Not required, but may be helpful down the road, front end
 team can discuss and decide what needs, if any, this could
@@ -298,7 +307,6 @@ WARNING: TODO, investigate this further...
 
 == Definitions
 
-
 [[condSubst]]Conditional Substitution::
 A Gradle feature that enables the substitution of one
 dependency with another if some condition is met.
@@ -306,3 +314,18 @@ dependency with another if some condition is met.
 In our case this would likely mean using a sibling project
 instead of an artifact if that project exists in your
 workspace.
++
+See {condSubstBlog}[this blog post], or {condSubstDocs}[the
+Gradle docs] for a more detailed explanation.
+
+[[javaPlat]]Java Platform::
+The Gradle method of creating a Bill of Materials for a
+project or group of projects.
++
+The Java Platform can be used to define and/or constrain
+projects to a known working set of dependencies.  Similar to
+our base-pom files, our dependency versions can be declared
+here and omitted from individual project dependency
+declarations.
++
+See {javaPlatDocs}[the Gradle docs] for more information.
