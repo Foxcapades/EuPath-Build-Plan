@@ -4,12 +4,12 @@ ifdef::env-github[]
 :warning-caption: ⚠
 endif::[]
 :toc: left
-:url-home: https://github.com/Foxcapades/Build-Plan
+:url-home: https://github.com/Foxcapades/EuPath-Build-Plan
 Elizabeth Harper <epharper@upenn.edu>
 
 
 
-Document Render: https://foxcapades.github.io/Build-Plan/readme.html +
+Document Render: https://foxcapades.github.io/EuPath-Build-Plan/readme.html +
 Document Source: {url-home}
 
 == Goals
