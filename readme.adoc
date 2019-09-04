@@ -2,7 +2,7 @@
 :warning-caption: ⚠
 
 
-Document Source: https://gist.github.com/Foxcapades/a3e9555130f5e36d390860260307c102
+Document Source: https://github.com/Foxcapades/Build-Plan
 
 == Goals
 
@@ -67,7 +67,7 @@ which can be published to our internal repository.
 
 Take each project's gradle build and convert it's dependency
 on sibling projects into artifact dependencies with
-<<Conditional Substitution>>.
+<<#condSubst,Conditional Substitution>>.
 
 
 == Issues / Concerns
@@ -240,10 +240,10 @@ WARNING: TODO, investigate this further...
 == Definitions
 
 
-[[Conditional Substitution]]::
-  A Gradle feature that enables the substitution of one
-  dependency with another if some condition is met.
-+
-  In our case this would likely mean using a sibling project
-  instead of an artifact if that project exists in your
-  workspace.
+[[condSubst]]Conditional Substitution::
+A Gradle feature that enables the substitution of one
+dependency with another if some condition is met.
+
+In our case this would likely mean using a sibling project
+instead of an artifact if that project exists in your
+workspace.

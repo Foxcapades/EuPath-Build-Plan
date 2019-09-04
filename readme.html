@@ -444,7 +444,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>Document Source: <a href="https://gist.github.com/Foxcapades/a3e9555130f5e36d390860260307c102" class="bare">https://gist.github.com/Foxcapades/a3e9555130f5e36d390860260307c102</a></p>
+<p>Document Source: <a href="https://github.com/Foxcapades/Build-Plan" class="bare">https://github.com/Foxcapades/Build-Plan</a></p>
 </div>
 </div>
 </div>
@@ -530,6 +530,14 @@ actions.</p>
 <p>This may mean custom (Java) code will need to be written and
 made available to Gradle as one or more additional plugins
 which can be published to our internal repository.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_part_4_split_the_monolith">Part 4: Split the monolith</h3>
+<div class="paragraph">
+<p>Take each project&#8217;s gradle build and convert it&#8217;s dependency
+on sibling projects into artifact dependencies with
+<a href="#condSubst">Conditional Substitution</a>.</p>
 </div>
 </div>
 </div>
@@ -796,10 +804,29 @@ TODO, investigate this further&#8230;&#8203;
 </div>
 </div>
 </div>
+<div class="sect1">
+<h2 id="_definitions">Definitions</h2>
+<div class="sectionbody">
+<div class="dlist">
+<dl>
+<dt class="hdlist1"><a id="condSubst"></a>Conditional Substitution</dt>
+<dd>
+<p>A Gradle feature that enables the substitution of one
+dependency with another if some condition is met.</p>
+</dd>
+</dl>
+</div>
+<div class="paragraph">
+<p>In our case this would likely mean using a sibling project
+instead of an artifact if that project exists in your
+workspace.</p>
+</div>
+</div>
+</div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2019-09-04 11:27:46 -0400
+Last updated 2019-09-04 11:37:02 -0400
 </div>
 </div>
 </body>
