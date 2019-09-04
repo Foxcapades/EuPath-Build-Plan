@@ -875,6 +875,11 @@ format <code>&lt;nextRelease&gt;.SNAPSHOT-&lt;artifactBuildNumber&gt;</code>.</p
 <p>The <code>&lt;artifactBuildNumber&gt;</code> (and potentially <code>&lt;nextRelease&gt;</code>)
 params will be managed by CI to avoid conflicts.</p>
 </div>
+<div class="paragraph">
+<p>The development <a href="#javaPlat">Java Platform</a> will be given a
+wildcard version identifier that simply specifies that
+builds should use the latest artifact.</p>
+</div>
 <div class="listingblock">
 <div class="title">Example Version History</div>
 <div class="content">
@@ -1060,6 +1065,9 @@ TODO, investigate this further&#8230;&#8203;
 <div class="ulist">
 <ul>
 <li>
+<p>Conifer???</p>
+</li>
+<li>
 <p>Versioning of libs?</p>
 </li>
 <li>
@@ -1069,7 +1077,8 @@ TODO, investigate this further&#8230;&#8203;
 <p>Division of deployments?</p>
 </li>
 <li>
-<p>Triggers for builds?  (build cascade when a dependency)</p>
+<p>Triggers for builds?  (build cascade when a dependency)
+Does conditional substitution trigger child project builds?</p>
 </li>
 </ul>
 </div>
@@ -1116,7 +1125,7 @@ declarations.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2019-09-04 13:51:42 -0400
+Last updated 2019-09-04 13:59:02 -0400
 </div>
 </div>
 </body>

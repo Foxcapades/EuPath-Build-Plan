@@ -126,13 +126,17 @@ all project builds.
 WARNING: TODO: Find out what scripts exist on the servers
   that call Ant, Maven, or other build scripts.
 
+
 === Part 4: Split the monolith
 
 Take each project's Gradle build and convert its dependency
 on sibling projects into artifact dependencies with
 <<#condSubst,Conditional Substitution>>.
 
+
 === Part 5: Deployments
+
+
 
 
 == Issues / Concerns
@@ -233,6 +237,10 @@ format `<nextRelease>.SNAPSHOT-<artifactBuildNumber>`.
 
 The `<artifactBuildNumber>` (and potentially `<nextRelease>`)
 params will be managed by CI to avoid conflicts.
+
+The development <<javaPlat,Java Platform>> will be given a
+wildcard version identifier that simply specifies that
+builds should use the latest artifact.
 
 .Example Version History
 [source]
@@ -346,6 +354,8 @@ WARNING: TODO, investigate this further...
 
 == Questions
 
+- Conifer???
+
 - Versioning of libs?
 
 - Factoring builds?
@@ -353,6 +363,7 @@ WARNING: TODO, investigate this further...
 - Division of deployments?
 
 - Triggers for builds?  (build cascade when a dependency)
+  Does conditional substitution trigger child project builds?
 
 
 == Definitions
