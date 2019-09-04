@@ -128,7 +128,7 @@ WARNING: TODO: Find out what scripts exist on the servers
 
 === Part 4: Split the monolith
 
-Take each project's Gradle build and convert it's dependency
+Take each project's Gradle build and convert its dependency
 on sibling projects into artifact dependencies with
 <<#condSubst,Conditional Substitution>>.
 
@@ -159,8 +159,8 @@ update these dependencies.
 
 ===== Perl
 
-With Perl we have a couple of options available to us we can
-use a private CPAN repository, or alternatively, we can
+With Perl we have a couple of options available to us.  We
+can use a private CPAN repository, or alternatively, we can
 split the Perl code into separate git repositories and
 depend on it {cpanGitUse}[via git itself].
 
