@@ -451,8 +451,20 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_goals">Goals</a></li>
 <li><a href="#_increments">Increments</a>
 <ul class="sectlevel2">
-<li><a href="#_part_1_maven_to_gradle">Part 1: Maven to Gradle</a></li>
-<li><a href="#_part_2_ant_to_gradle">Part 2: Ant to Gradle</a></li>
+<li><a href="#_part_1_maven_to_gradle">Part 1: Maven to Gradle</a>
+<ul class="sectlevel3">
+<li><a href="#_impact_on_servers">Impact on Servers</a></li>
+<li><a href="#_impact_on_jenkins">Impact on Jenkins</a></li>
+<li><a href="#_impact_on_developers">Impact on Developers</a></li>
+</ul>
+</li>
+<li><a href="#_part_2_ant_to_gradle">Part 2: Ant to Gradle</a>
+<ul class="sectlevel3">
+<li><a href="#_impact_on_servers_2">Impact on Servers</a></li>
+<li><a href="#_impact_on_jenkins_2">Impact on Jenkins</a></li>
+<li><a href="#_impact_on_developers_2">Impact on Developers</a></li>
+</ul>
+</li>
 <li><a href="#_part_3_scripts_to_gradle">Part 3: Scripts to Gradle</a></li>
 <li><a href="#_part_4_split_the_monolith">Part 4: Split the monolith</a></li>
 <li><a href="#_part_5_deployments">Part 5: Deployments</a></li>
@@ -460,15 +472,38 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </li>
 <li><a href="#_issues_concerns">Issues / Concerns</a>
 <ul class="sectlevel2">
-<li><a href="#_bundling_of_non_java_project_code">Bundling of non-java project code</a></li>
-<li><a href="#_artifact_versioning">Artifact Versioning</a></li>
+<li><a href="#_bundling_of_non_java_project_code">Bundling of non-java project code</a>
+<ul class="sectlevel3">
+<li><a href="#_possible_approaches_by_language">Possible approaches by language</a></li>
+<li><a href="#_r">R</a></li>
+<li><a href="#_c">C</a></li>
+<li><a href="#_python">Python</a></li>
+<li><a href="#_others">Others?</a></li>
+</ul>
+</li>
+<li><a href="#_artifact_versioning">Artifact Versioning</a>
+<ul class="sectlevel3">
+<li><a href="#_releases">Releases</a></li>
+<li><a href="#_development">Development</a></li>
+</ul>
+</li>
 <li><a href="#_multi_project_development_workflow">Multi-project development workflow</a></li>
 </ul>
 </li>
 <li><a href="#_new_tools">New Tools</a>
 <ul class="sectlevel2">
-<li><a href="#_gradle">Gradle</a></li>
-<li><a href="#_artifact_repositories">Artifact Repositories</a></li>
+<li><a href="#_gradle">Gradle</a>
+<ul class="sectlevel3">
+<li><a href="#_features">Features</a></li>
+</ul>
+</li>
+<li><a href="#_artifact_repositories">Artifact Repositories</a>
+<ul class="sectlevel3">
+<li><a href="#_javamaven">Java/Maven</a></li>
+<li><a href="#_javascriptnpm">JavaScript/NPM</a></li>
+<li><a href="#_perlcpancarton">Perl/CPAN/Carton</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li><a href="#_questions">Questions</a></li>
@@ -1081,7 +1116,7 @@ declarations.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2019-09-04 13:48:20 -0400
+Last updated 2019-09-04 13:49:28 -0400
 </div>
 </div>
 </body>
