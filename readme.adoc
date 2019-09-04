@@ -51,6 +51,32 @@ This conversion is almost 1 to 1 and wil be tedious, but
 should not be not difficult.  This particular change should
 only affect users in that the log output will be different.
 
+At this point in time the Gradle distribution will follow
+the standard practice of including a base version in the
+source repository.
+
+WARNING: TODO: get a list of all scripts that call Maven
+  directly
+
+==== Impact on Servers
+
+None as Gradle will be included with the source code.
+
+For developer convenience (potentially faster builds) it may
+be nice to have Gradle installed on the development servers,
+but this is not required.
+
+==== Impact on Jenkins
+
+None at this point, the Jenkins `rebuilder` script will call
+Ant as normal.
+
+==== Impact on Developers
+
+Different looking log output during build.
+
+Potentially faster project build times.
+
 
 === Part 2: Ant to Gradle
 
@@ -66,22 +92,46 @@ will be made into a plugin which will be published to our
 internal Maven repository to be made available to all
 projects.
 
+WARNING: TODO: get a list of all scripts that call Ant
+  directly.
+
+
+==== Impact on Servers
+
+The `rebuilder` script will be updated to call Gradle rather
+than Ant.
+
+
+==== Impact on Jenkins
+
+The Jenkins `rebuilder` script will be updated to call
+Gradle rather than Ant.
+
+==== Impact on Developers
+
+Any Ant calls will now be made through Gradle.
+
 
 === Part 3: Scripts to Gradle
 
 Convert the custom wrapper and helper scripts into Gradle
 actions.
 
-This may mean custom (Java) code will need to be written and
-made available to Gradle as one or more additional plugins
-which can be published to our internal repository.
+This will mean custom (Java) code will need to be written.
+This code will be created as a Gradle plugin and published
+to our internal Maven server so as to be made available to
+all project builds.
 
+WARNING: TODO: Find out what scripts exist on the servers
+  that call Ant, Maven, or other build scripts.
 
 === Part 4: Split the monolith
 
 Take each project's Gradle build and convert it's dependency
 on sibling projects into artifact dependencies with
 <<#condSubst,Conditional Substitution>>.
+
+=== Part 5: Deployments
 
 
 == Issues / Concerns
@@ -294,8 +344,6 @@ WARNING: TODO, investigate this further...
 
 
 == Questions
-
-- Local development, multi-project changes?
 
 - Versioning of libs?
 

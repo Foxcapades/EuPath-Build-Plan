@@ -455,6 +455,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_part_2_ant_to_gradle">Part 2: Ant to Gradle</a></li>
 <li><a href="#_part_3_scripts_to_gradle">Part 3: Scripts to Gradle</a></li>
 <li><a href="#_part_4_split_the_monolith">Part 4: Split the monolith</a></li>
+<li><a href="#_part_5_deployments">Part 5: Deployments</a></li>
 </ul>
 </li>
 <li><a href="#_issues_concerns">Issues / Concerns</a>
@@ -535,6 +536,51 @@ which can be published to a Maven repository.</p>
 should not be not difficult.  This particular change should
 only affect users in that the log output will be different.</p>
 </div>
+<div class="paragraph">
+<p>At this point in time the Gradle distribution will follow
+the standard practice of including a base version in the
+source repository.</p>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+TODO: get a list of all scripts that call Maven
+  directly
+</td>
+</tr>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_impact_on_servers">Impact on Servers</h4>
+<div class="paragraph">
+<p>None as Gradle will be included with the source code.</p>
+</div>
+<div class="paragraph">
+<p>For developer convenience (potentially faster builds) it may
+be nice to have Gradle installed on the development servers,
+but this is not required.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_impact_on_jenkins">Impact on Jenkins</h4>
+<div class="paragraph">
+<p>None at this point, the Jenkins <code>rebuilder</code> script will call
+Ant as normal.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_impact_on_developers">Impact on Developers</h4>
+<div class="paragraph">
+<p>Different looking log output during build.</p>
+</div>
+<div class="paragraph">
+<p>Potentially faster project build times.</p>
+</div>
+</div>
 </div>
 <div class="sect2">
 <h3 id="_part_2_ant_to_gradle">Part 2: Ant to Gradle</h3>
@@ -553,6 +599,39 @@ will be made into a plugin which will be published to our
 internal Maven repository to be made available to all
 projects.</p>
 </div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+TODO: get a list of all scripts that call Ant
+  directly.
+</td>
+</tr>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_impact_on_servers_2">Impact on Servers</h4>
+<div class="paragraph">
+<p>The <code>rebuilder</code> script will be updated to call Gradle rather
+than Ant.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_impact_on_jenkins_2">Impact on Jenkins</h4>
+<div class="paragraph">
+<p>The Jenkins <code>rebuilder</code> script will be updated to call
+Gradle rather than Ant.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_impact_on_developers_2">Impact on Developers</h4>
+<div class="paragraph">
+<p>Any Ant calls will now be made through Gradle.</p>
+</div>
+</div>
 </div>
 <div class="sect2">
 <h3 id="_part_3_scripts_to_gradle">Part 3: Scripts to Gradle</h3>
@@ -561,9 +640,23 @@ projects.</p>
 actions.</p>
 </div>
 <div class="paragraph">
-<p>This may mean custom (Java) code will need to be written and
-made available to Gradle as one or more additional plugins
-which can be published to our internal repository.</p>
+<p>This will mean custom (Java) code will need to be written.
+This code will be created as a Gradle plugin and published
+to our internal Maven server so as to be made available to
+all project builds.</p>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+TODO: Find out what scripts exist on the servers
+  that call Ant, Maven, or other build scripts.
+</td>
+</tr>
+</table>
 </div>
 </div>
 <div class="sect2">
@@ -573,6 +666,10 @@ which can be published to our internal repository.</p>
 on sibling projects into artifact dependencies with
 <a href="#condSubst">Conditional Substitution</a>.</p>
 </div>
+</div>
+<div class="sect2">
+<h3 id="_part_5_deployments">Part 5: Deployments</h3>
+
 </div>
 </div>
 </div>
@@ -928,9 +1025,6 @@ TODO, investigate this further&#8230;&#8203;
 <div class="ulist">
 <ul>
 <li>
-<p>Local development, multi-project changes?</p>
-</li>
-<li>
 <p>Versioning of libs?</p>
 </li>
 <li>
@@ -987,7 +1081,7 @@ declarations.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2019-09-04 13:37:29 -0400
+Last updated 2019-09-04 13:48:20 -0400
 </div>
 </div>
 </body>
