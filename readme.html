@@ -583,7 +583,100 @@ on sibling projects into artifact dependencies with
 <div class="sectionbody">
 <div class="sect2">
 <h3 id="_bundling_of_non_java_project_code">Bundling of non-java project code</h3>
-
+<div class="paragraph">
+<p>With Gradle&#8217;s customizable nature, additional compile tasks
+can be added for non-Java source code.</p>
+</div>
+<div class="paragraph">
+<p>In CI additional steps can be performed to publish those
+components as bundles or packages as per the standard
+practices for the specific language.</p>
+</div>
+<div class="paragraph">
+<p>In early phases of the build update, non-Java dependencies
+will be treated as they are in the current build process.</p>
+</div>
+<div class="paragraph">
+<p>When we migrate towards a separate build/deploy strategy
+we will need to have a system in place to host, version, and
+update these dependencies.</p>
+</div>
+<div class="sect3">
+<h4 id="_possible_approaches_by_language">Possible approaches by language</h4>
+<div class="sect4">
+<h5 id="_perl">Perl</h5>
+<div class="paragraph">
+<p>With Perl we have a couple of options available to us we can
+use a private CPAN repository, or alternatively, we can
+split the Perl code into separate git repositories and
+depend on it via git itself.</p>
+</div>
+<div class="sect5">
+<h6 id="_versioning">Versioning</h6>
+<div class="paragraph">
+<p>Depending on the package hosting approach above we may use
+different strategies, using git we can use git tags to
+maintain releases or different versions.  Using a private
+CPAN repository, we would need to come up with a concrete
+versioning strategy.</p>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_javascripttypescript">Javascript/Typescript</h5>
+<div class="paragraph">
+<p>This is already handled for us via NPM or Yarn.  Similarly
+to Perl, we may desire to host our Javascript &amp; Typescript
+code in a private NPM repository, or split that code out and
+just use git.</p>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_r">R</h4>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+TODO
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_c">C</h4>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+TODO
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_others">Others?</h4>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+TODO
+</td>
+</tr>
+</table>
+</div>
+</div>
 </div>
 <div class="sect2">
 <h3 id="_artifact_versioning">Artifact Versioning</h3>
@@ -862,7 +955,7 @@ workspace.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2019-09-04 11:48:15 -0400
+Last updated 2019-09-04 12:09:16 -0400
 </div>
 </div>
 </body>

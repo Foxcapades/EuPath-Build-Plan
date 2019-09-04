@@ -80,8 +80,59 @@ on sibling projects into artifact dependencies with
 
 == Issues / Concerns
 
+
 === Bundling of non-java project code
 
+
+With Gradle's customizable nature, additional compile tasks
+can be added for non-Java source code.
+
+In CI additional steps can be performed to publish those
+components as bundles or packages as per the standard
+practices for the specific language.
+
+In early phases of the build update, non-Java dependencies
+will be treated as they are in the current build process.
+
+When we migrate towards a separate build/deploy strategy
+we will need to have a system in place to host, version, and
+update these dependencies.
+
+==== Possible approaches by language
+
+===== Perl
+
+With Perl we have a couple of options available to us we can
+use a private CPAN repository, or alternatively, we can
+split the Perl code into separate git repositories and
+depend on it via git itself.
+
+====== Versioning
+
+Depending on the package hosting approach above we may use
+different strategies, using git we can use git tags to
+maintain releases or different versions.  Using a private
+CPAN repository, we would need to come up with a concrete
+versioning strategy.
+
+===== Javascript/Typescript
+
+This is already handled for us via NPM or Yarn.  Similarly
+to Perl, we may desire to host our Javascript & Typescript
+code in a private NPM repository, or split that code out and
+just use git.
+
+==== R
+
+WARNING: TODO
+
+==== C
+
+WARNING: TODO
+
+==== Others?
+
+WARNING: TODO
 
 === Artifact Versioning
 
