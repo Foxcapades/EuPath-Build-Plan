@@ -1,0 +1,223 @@
+= Build System
+:icons:
+:iconfont-name: font-awesome
+:toc:
+
+== Goals
+
+=== Increments
+
+
+==== Part 1: Maven to Gradle
+
+Exchange the maven pom files for gradle builds.  Parts of
+the ant build that call to maven will now call to gradle.
+
+Gradle projects will declare their project dependencies and
+the build should function similarly to the previous build
+system.
+
+The base-pom file will be converted to a Gradle
+`java-platform` which is a mechanism that can be used to
+declare/constrain dependency versions to a known working
+set.
+
+Boilerplate details, such as developer information or custom
+artifact repositories will be extracted to a gradle plugin
+which can be published to a Maven repository.
+
+This conversion is almost 1 to 1 and should be tedious, but
+not difficult.  This particular change should only affect
+users in that the log output will be different.
+
+
+==== Part 2: Ant to Gradle
+
+Convert the build xml declarations into gradle actions.
+
+At this point, custom scripts will be left alone, calls to
+them will be maintained, and converted to calls from gradle.
+
+Most Ant actions or behaviors are available easily in Gradle
+or can be easily recreated as a function in Gradle.  If such
+functions exist they will be written into a Gradle plugin
+which will be published to our internal Maven repository to
+be made available to all projects.
+
+
+==== Part 3: Scripts to Gradle
+
+Convert the custom wrapper and helper scripts into Gradle
+actions.
+
+This may mean custom (Java) code will need to be written and
+made available to Gradle as one or more additional plugins
+which can be published to our internal repository.
+
+
+== Issues / Concerns
+
+=== Bundling of non-java project code
+
+
+=== Artifact Versioning
+
+WARNING: Everything about this needs to be discussed.  The
+  below sections outline a rough idea that may work for our
+  team.
+
+==== Releases
+
+
+For releases, artifacts will be built using the version
+format `<siteRelease>.<artifactBuild>` or, for example
+`46.0`.  The java platform project will be updated to
+reflect the concrete versions of the artifacts that will be
+used for a site release.
+
+The `<artifactBuild>` will be the number of builds of the
+release artifact for a site version, so as live patches are
+added, this number will increment.
+
+.Example Release History
+[source]
+----
+WDK:
+  48.0 - Site Release
+  48.1 - Memory leak fix
+  49.0 - Site Release
+  49.1 - Corrected typo
+  49.2 - Fix for user-comment search
+----
+
+
+==== Development
+
+While in development artifacts will be versioned using the
+format `<nextRelease>.SNAPSHOT-<artifactBuildNumber>`.
+
+The `<artifactBuildNumber>` (and potentially `<nextRelease>`)
+params will be managed by CI to avoid conflicts.
+
+.Example Version History
+[source]
+----
+WDK:
+  46.SNAPSHOT-105: Added public user datasets to user dataset list
+  46.SNAPSHOT-106: Corrected issue with deleted public user datasets
+--- Site Build 47 released---
+  47.SNAPSHOT-1: Added user id field to service endpoint result
+  47.SNAPSHOT-2: Reworked question service
+----
+
+
+=== Multi-project development workflow
+
+Initially the projects will declare each other as local
+dependencies which will mean that components will be rebuilt
+as needed in a manner similar to the previous builds.
+
+Eventually dependencies will be handled with conditional
+substitutions, a built in Gradle feature, which will use a
+local project when available instead of the Maven repository
+version of that dependency.
+
+
+== New Tools
+
+
+=== Gradle
+
+Build / dependency management tool.  Can be used as a
+replacement for Maven, Ant, and many of our custom wrapper
+scripts and tools.
+
+Gradle is a JVM language oriented build manager, but can be
+and is used for non-jvm build and dependency management.
+
+==== Features
+
+Dependency Management::
+  * Primarily uses Maven repositories for retrieving
+    dependencies, and follows traditional Maven versioning
+    behavior
+  * can be extended through many plugins to pull from
+    different source types, such as a git repo, npm, etc..
+  
+Artifact Builds::
+  * Comes with a default suite of build functionalities
+    that cover most common cases
+  * can be easily extended inline, with custom, project
+    specific code, or with easily constructed plugins
+  
+Artifact Publishing::
+  * Can be used to push new builds to an artifact
+    repository, though traditionally the CI would be the
+    only one to perform this specific task
+
+Extensibility::
+  * Gradle builds can be customized or extended using
+    project-local scripts or plugins using most JVM
+    languages.  Extending a build or providing extra
+    utilities can be easily done with just a single java
+    file if desired.
+
+Faster Builds::
+  * Gradle will attempt to build projects or components in
+    parallel when applicable.
+  * Gradle is also clever about what actually needs to be
+    rebuilt, with a `make` like behavior, only classes that
+    actually changed will be rebuilt.
+
+
+=== Artifact Repositories
+
+For us to move forward and make use of modern/standard
+tooling practices surrounding builds/deployments/etc... we
+will be migrating away from our 'build everything' approach
+and only building specific components on change.
+Sites can then be deployed without the need to perform build
+tasks.
+
+Since our project does contain some private components that
+are part of a running site, we will need one or more private
+artifact repositories.
+
+
+==== Java/Maven
+
+This will be required for our datasets/presenters projects
+at minimum, however since our libraries aren't really
+intended for mass use, we could publish all our artifacts
+to this internal repository.
+
+
+==== Javascript/NPM
+
+Not required, but may be helpful down the road, front end
+team can discuss and decide what needs, if any, this could
+fill.
+
+Additionally, since our UI code is not private, using the
+public NPM is an option that would not necessarily require
+ops involvement.
+
+
+==== Perl/CPAN/Carton
+
+
+WARNING: TODO, investigate this further...
+
+
+== Questions
+
+- Local development, multi-project changes?
+
+- Versioning of libs?
+
+- Factoring builds?
+
+- Division of deployments?
+
+- Triggers for builds?  (build cascade when a dependency)
+
