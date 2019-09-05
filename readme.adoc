@@ -49,8 +49,8 @@ The base-pom file will be converted to a Gradle <<javaPlat,
 `java-platform`>> Bill of Materials.
 
 Boilerplate details, such as developer information or custom
-artifact repositories will be extracted to a Gradle plugin
-which can be published to a Maven repository.
+<<artRep,Artifact Repositories>> will be extracted to a
+Gradle plugin which can be published to a Maven repository.
 
 This conversion is almost 1 to 1 and wil be tedious, but
 should not be not difficult.  This particular change should
@@ -347,48 +347,6 @@ local project when available instead of the Maven repository
 version of that dependency.
 
 
-== New Tools
-
-
-=== Artifact Repositories
-
-For us to move forward and make use of modern/standard
-tooling practices surrounding builds/deployments/etc... we
-will be migrating away from our 'build everything' approach
-and only building specific components on change.
-Sites can then be deployed without the need to perform build
-tasks.
-
-Since our project does contain some private components that
-are part of a running site, we will need one or more private
-artifact repositories.
-
-
-==== Java/Maven
-
-This will be required for our datasets/presenters projects
-at minimum, however since our libraries aren't really
-intended for mass use, we could publish all our artifacts
-to this internal repository.
-
-
-==== JavaScript/NPM
-
-Not required, but may be helpful down the road, front end
-team can discuss and decide what needs, if any, this could
-fill.
-
-Additionally, since our UI code is not private, using the
-public NPM is an option that would not necessarily require
-ops involvement.
-
-
-==== Perl/CPAN/Carton
-
-
-WARNING: TODO, investigate this further...
-
-
 == Questions
 
 * Depending on different language dependencies?
@@ -410,6 +368,20 @@ language lines?
 
 
 == Definitions
+
+
+[#artRep]
+=== Artifact Repository
+
+An Artifact Repository is a server or system designed to
+provide hosting and versioning for bundled packages of code
+or resources for distribution or linking as complete
+applications or libraries.
+
+Most widely used languages have one or more commonly used
+Package Managers which will generally use an Artifact
+Repository, or Source Repository when retrieving or
+installing applications or dependencies.
 
 
 [#condSubst]

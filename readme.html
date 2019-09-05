@@ -465,14 +465,10 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_multi_project_development_workflow">Multi-project development workflow</a></li>
 </ul>
 </li>
-<li><a href="#_new_tools">New Tools</a>
-<ul class="sectlevel2">
-<li><a href="#_artifact_repositories">Artifact Repositories</a></li>
-</ul>
-</li>
 <li><a href="#_questions">Questions</a></li>
 <li><a href="#_definitions">Definitions</a>
 <ul class="sectlevel2">
+<li><a href="#artRep">Artifact Repository</a></li>
 <li><a href="#condSubst">Conditional Substitution</a></li>
 <li><a href="#gradle">Gradle</a></li>
 <li><a href="#javaPlat">Java Platform</a></li>
@@ -533,8 +529,8 @@ system.</p>
 </div>
 <div class="paragraph">
 <p>Boilerplate details, such as developer information or custom
-artifact repositories will be extracted to a Gradle plugin
-which can be published to a Maven repository.</p>
+<a href="#artRep">Artifact Repositories</a> will be extracted to a
+Gradle plugin which can be published to a Maven repository.</p>
 </div>
 <div class="paragraph">
 <p>This conversion is almost 1 to 1 and wil be tedious, but
@@ -999,64 +995,6 @@ version of that dependency.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_new_tools">New Tools</h2>
-<div class="sectionbody">
-<div class="sect2">
-<h3 id="_artifact_repositories">Artifact Repositories</h3>
-<div class="paragraph">
-<p>For us to move forward and make use of modern/standard
-tooling practices surrounding builds/deployments/etc&#8230;&#8203; we
-will be migrating away from our 'build everything' approach
-and only building specific components on change.
-Sites can then be deployed without the need to perform build
-tasks.</p>
-</div>
-<div class="paragraph">
-<p>Since our project does contain some private components that
-are part of a running site, we will need one or more private
-artifact repositories.</p>
-</div>
-<div class="sect3">
-<h4 id="_javamaven">Java/Maven</h4>
-<div class="paragraph">
-<p>This will be required for our datasets/presenters projects
-at minimum, however since our libraries aren&#8217;t really
-intended for mass use, we could publish all our artifacts
-to this internal repository.</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_javascriptnpm">JavaScript/NPM</h4>
-<div class="paragraph">
-<p>Not required, but may be helpful down the road, front end
-team can discuss and decide what needs, if any, this could
-fill.</p>
-</div>
-<div class="paragraph">
-<p>Additionally, since our UI code is not private, using the
-public NPM is an option that would not necessarily require
-ops involvement.</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_perlcpancarton">Perl/CPAN/Carton</h4>
-<div class="admonitionblock warning">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-warning" title="Warning"></i>
-</td>
-<td class="content">
-TODO, investigate this further&#8230;&#8203;
-</td>
-</tr>
-</table>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
 <h2 id="_questions">Questions</h2>
 <div class="sectionbody">
 <div class="ulist">
@@ -1103,6 +1041,21 @@ language lines?</p>
 <div class="sect1">
 <h2 id="_definitions">Definitions</h2>
 <div class="sectionbody">
+<div class="sect2">
+<h3 id="artRep">Artifact Repository</h3>
+<div class="paragraph">
+<p>An Artifact Repository is a server or system designed to
+provide hosting and versioning for bundled packages of code
+or resources for distribution or linking as complete
+applications or libraries.</p>
+</div>
+<div class="paragraph">
+<p>Most widely used languages have one or more commonly used
+Package Managers which will generally use an Artifact
+Repository, or Source Repository when retrieving or
+installing applications or dependencies.</p>
+</div>
+</div>
 <div class="sect2">
 <h3 id="condSubst">Conditional Substitution</h3>
 <div class="paragraph">
@@ -1158,7 +1111,7 @@ declarations.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2019-09-05 14:54:17 -0400
+Last updated 2019-09-05 15:26:31 -0400
 </div>
 </div>
 </body>
