@@ -451,20 +451,8 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_goals">Goals</a></li>
 <li><a href="#_increments">Increments</a>
 <ul class="sectlevel2">
-<li><a href="#_part_1_maven_to_gradle">Part 1: Maven to Gradle</a>
-<ul class="sectlevel3">
-<li><a href="#_impact_on_servers">Impact on Servers</a></li>
-<li><a href="#_impact_on_jenkins">Impact on Jenkins</a></li>
-<li><a href="#_impact_on_developers">Impact on Developers</a></li>
-</ul>
-</li>
-<li><a href="#_part_2_ant_to_gradle">Part 2: Ant to Gradle</a>
-<ul class="sectlevel3">
-<li><a href="#_impact_on_servers_2">Impact on Servers</a></li>
-<li><a href="#_impact_on_jenkins_2">Impact on Jenkins</a></li>
-<li><a href="#_impact_on_developers_2">Impact on Developers</a></li>
-</ul>
-</li>
+<li><a href="#_part_1_maven_to_gradle">Part 1: Maven to Gradle</a></li>
+<li><a href="#_part_2_ant_to_gradle">Part 2: Ant to Gradle</a></li>
 <li><a href="#_part_3_scripts_to_gradle">Part 3: Scripts to Gradle</a></li>
 <li><a href="#_part_4_split_the_monolith">Part 4: Split the monolith</a></li>
 <li><a href="#_part_5_deployments">Part 5: Deployments</a></li>
@@ -472,38 +460,15 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </li>
 <li><a href="#_issues_concerns">Issues / Concerns</a>
 <ul class="sectlevel2">
-<li><a href="#_bundling_of_non_java_project_code">Bundling of non-java project code</a>
-<ul class="sectlevel3">
-<li><a href="#_possible_approaches_by_language">Possible approaches by language</a></li>
-<li><a href="#_r">R</a></li>
-<li><a href="#_c">C</a></li>
-<li><a href="#_python">Python</a></li>
-<li><a href="#_others">Others?</a></li>
-</ul>
-</li>
-<li><a href="#_artifact_versioning">Artifact Versioning</a>
-<ul class="sectlevel3">
-<li><a href="#_releases">Releases</a></li>
-<li><a href="#_development">Development</a></li>
-</ul>
-</li>
+<li><a href="#_bundling_of_non_java_project_code">Bundling of non-java project code</a></li>
+<li><a href="#_artifact_versioning">Artifact Versioning</a></li>
 <li><a href="#_multi_project_development_workflow">Multi-project development workflow</a></li>
 </ul>
 </li>
 <li><a href="#_new_tools">New Tools</a>
 <ul class="sectlevel2">
-<li><a href="#_gradle">Gradle</a>
-<ul class="sectlevel3">
-<li><a href="#_features">Features</a></li>
-</ul>
-</li>
-<li><a href="#_artifact_repositories">Artifact Repositories</a>
-<ul class="sectlevel3">
-<li><a href="#_javamaven">Java/Maven</a></li>
-<li><a href="#_javascriptnpm">JavaScript/NPM</a></li>
-<li><a href="#_perlcpancarton">Perl/CPAN/Carton</a></li>
-</ul>
-</li>
+<li><a href="#_gradle">Gradle</a></li>
+<li><a href="#_artifact_repositories">Artifact Repositories</a></li>
 </ul>
 </li>
 <li><a href="#_questions">Questions</a></li>
@@ -515,7 +480,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>Document Render: <a href="https://foxcapades.github.io/EuPath-Build-Plan/readme.html" class="bare">https://foxcapades.github.io/EuPath-Build-Plan/readme.html</a><br>
+<p>Document Render: <a href="https://github.com/Foxcapades/EuPath-Build-Plan/readme.html" class="bare">https://github.com/Foxcapades/EuPath-Build-Plan/readme.html</a><br>
 Document Source: <a href="https://github.com/Foxcapades/EuPath-Build-Plan" class="bare">https://github.com/Foxcapades/EuPath-Build-Plan</a></p>
 </div>
 </div>
@@ -634,6 +599,16 @@ will be made into a plugin which will be published to our
 internal Maven repository to be made available to all
 projects.</p>
 </div>
+<div class="paragraph">
+<p><a href="https://github.com/Foxcapades/EuPath-Build-Plan/blob/master/search-results/ant.txt">All references to Ant</a> will need to be replaced
+or updated at this point.</p>
+</div>
+<div class="sect3">
+<h4 id="_impact_on_servers_2">Impact on Servers</h4>
+<div class="paragraph">
+<p>The <code>rebuilder</code> script will be updated to call Gradle rather
+than Ant.</p>
+</div>
 <div class="admonitionblock warning">
 <table>
 <tr>
@@ -641,17 +616,11 @@ projects.</p>
 <i class="fa icon-warning" title="Warning"></i>
 </td>
 <td class="content">
-TODO: get a list of all scripts that call Ant
-  directly.
+TODO: get a list of all non-project scripts that
+  call ant directly.
 </td>
 </tr>
 </table>
-</div>
-<div class="sect3">
-<h4 id="_impact_on_servers_2">Impact on Servers</h4>
-<div class="paragraph">
-<p>The <code>rebuilder</code> script will be updated to call Gradle rather
-than Ant.</p>
 </div>
 </div>
 <div class="sect3">
@@ -1125,7 +1094,7 @@ declarations.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2019-09-04 13:59:02 -0400
+Last updated 2019-09-05 09:40:23 -0400
 </div>
 </div>
 </body>

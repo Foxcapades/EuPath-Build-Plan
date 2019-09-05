@@ -4,16 +4,16 @@ ifdef::env-github[]
 :warning-caption: ⚠
 endif::[]
 :toc: left
-:toclevels: 3
 Elizabeth Harper <epharper@upenn.edu>
 
 // External URLS
 :condSubstBlog: https://medium.com/codequest/Gradle-multi-project-build-substituting-jar-dependencies-with-local-projects-4a5323f8680b
 :condSubstDocs: https://docs.Gradle.org/current/userguide/customizing_dependency_resolution_behavior.html
 :docSrc: https://github.com/Foxcapades/EuPath-Build-Plan
-:docPage: https://foxcapades.github.io/EuPath-Build-Plan/readme.html
+:docPage: {docSrc}/readme.html
 :javaPlatDocs: https://docs.gradle.org/current/userguide/java_platform_plugin.html
 :cpanGitUse: https://metacpan.org/pod/distribution/App-cpanminus/bin/cpanm
+:searchAnt: {docSrc}/blob/master/search-results/ant.txt
 
 
 
@@ -93,14 +93,17 @@ will be made into a plugin which will be published to our
 internal Maven repository to be made available to all
 projects.
 
-WARNING: TODO: get a list of all scripts that call Ant
-  directly.
+{searchAnt}[All references to Ant] will need to be replaced
+or updated at this point.
 
 
 ==== Impact on Servers
 
 The `rebuilder` script will be updated to call Gradle rather
 than Ant.
+
+WARNING: TODO: get a list of all non-project scripts that
+  call ant directly.
 
 
 ==== Impact on Jenkins
