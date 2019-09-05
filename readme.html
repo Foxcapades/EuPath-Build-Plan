@@ -751,7 +751,8 @@ on sibling projects into artifact dependencies with
 <div class="listingblock">
 <div class="title">Early phase Gradle dependency</div>
 <div class="content">
-<pre class="highlight"><code class="language-groovy" data-lang="groovy">dependencies {
+<pre class="highlight"><code class="language-groovy" data-lang="groovy">// Require local projects
+dependencies {
   compile project(':FgpUtil.Util')
   compile project(':WDK.Model')
   compile project(':WDK.Service')
@@ -760,9 +761,10 @@ on sibling projects into artifact dependencies with
 </div>
 </div>
 <div class="listingblock">
-<div class="title">Late phase Gradle dependency</div>
+<div class="title">Late phase Gradle dependency def</div>
 <div class="content">
-<pre class="highlight"><code class="language-groovy" data-lang="groovy">configurations.all {
+<pre class="highlight"><code class="language-groovy" data-lang="groovy">// Use local project if available
+configurations.all {
   dependencies.compile { -&gt;
     if it.location.exists {
       substitute module(it.name) with project("${it.group}.${it.name}")
@@ -1202,7 +1204,7 @@ declarations.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2019-09-05 10:06:11 -0400
+Last updated 2019-09-05 10:06:58 -0400
 </div>
 </div>
 </body>

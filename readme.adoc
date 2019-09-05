@@ -171,6 +171,7 @@ on sibling projects into artifact dependencies with
 .Early phase Gradle dependency
 [source, groovy]
 ----
+// Require local projects
 dependencies {
   compile project(':FgpUtil.Util')
   compile project(':WDK.Model')
@@ -179,9 +180,10 @@ dependencies {
 }
 ----
 
-.Late phase Gradle dependency
+.Late phase Gradle dependency def
 [source, groovy]
 ----
+// Use local project if available
 configurations.all {
   dependencies.compile { ->
     if it.location.exists {
