@@ -225,9 +225,10 @@ When we migrate towards a separate build/deploy strategy
 we will need to have a system in place to host, version, and
 update these dependencies.
 
-Non-package-based dependencies such as shell scripts will
-be pulled at deploy time by the deployment script.
-
+Dependencies that do not have a package manager may be
+bundled as a OS package for yum or apt, or alternatively
+these may just be pulled at deploy time by the deployment
+script.
 
 ==== Possible approaches by language
 
