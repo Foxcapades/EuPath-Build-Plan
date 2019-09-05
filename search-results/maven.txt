@@ -1,0 +1,131 @@
+Targets
+    Occurrences of 'maven' in Project with mask '!pom.xml'
+Found Occurrences  (88 usages found)
+    Unclassified occurrence  (8 usages found)
+        ApiCommonPresenters/Model/lib/xml/datasetPresenters  (1 usage found)
+            PlasmoDB.xml  (1 usage found)
+                1755           Metabolites were identified and quantified using MAVEN.<br><br>
+        msg-simple-fork  (4 usages found)
+            BUILD.md  (1 usage found)
+                31 ## Note to Maven users
+            README.md  (3 usages found)
+                32 ## Downloads and Maven artifact
+                34 You can download the jar directly on [Bintray](https://bintray.com/fge/maven/msg-simple).
+                44 For Maven:
+        OAuth2Server  (3 usages found)
+            README.md  (3 usages found)
+                37 classpath of a (unprovided) Java webapp.  This dependency is available via Maven
+                201 4. Decide if you want to configure a separate local maven repository for the
+                209 The specification of the config file is above.  The local Maven repository
+    Usage in comments  (11 usages found)
+        EbrcWebsiteCommon/Site/src/main/java/org/eupathdb/common/taglib/wdk  (1 usage found)
+            ErrorsTag.java  (1 usage found)
+                getActionErrors(PageContext)  (1 usage found)
+                    150 * http://grepcode.com/file/repo1.maven.org/maven2/struts/struts/1.2.4/org/apache/struts/taglib/html/MessagesTag.java/?v=source
+        FgpUtil/Util/src/test/java/org/gusdb/fgputil/workflow  (1 usage found)
+            TopologicalSortingTest.java  (1 usage found)
+                testSorting()  (1 usage found)
+                    87 // FIXME: currently broken on maven build; I think it has to do with map ordering
+        install/bin  (3 usages found)
+            build.pl  (1 usage found)
+                29 # set local maven repo to user's env var if available, else use $HOME/.m2/repository
+            installOracleDriver.sh  (2 usages found)
+                10 ##    3. The appropriate location in your local maven repository
+                48 # copy into local maven repository
+        msg-simple-fork  (3 usages found)
+            build.gradle  (2 usages found)
+                29 //        maven {
+                41 //    apply(plugin: "propdeps-maven");
+            BUILD.md  (1 usage found)
+                19 # Install in your local maven repository
+        OAuth2Server/EuPathDB/bin  (3 usages found)
+            build.sh  (3 usages found)
+                5 ##  file and custom local Maven repo.  Note that use of this
+                14 ##  localMvnRepo: local maven repository to use instead of the
+                21 # change to 'false' to have Maven run unit tests
+    Usage in string constants  (5 usages found)
+        install/bin  (3 usages found)
+            build.pl  (1 usage found)
+                31 print STDERR "Maven local repository set to: $mvnRepo\n";
+            installOracleDriver.sh  (2 usages found)
+                49 echo "Installing driver into local maven repository"
+                84 echo "Will install driver to GUS_HOME from local Maven repository"
+        msg-simple-fork  (1 usage found)
+            build.gradle  (1 usage found)
+                47 apply(plugin: "maven");
+        OAuth2Server/EuPathDB/bin  (1 usage found)
+            build.sh  (1 usage found)
+                48 echo "Custom local Maven repo absolute path: $altMavenRepo"
+    Occurrence in XML descriptor  (64 usages found)
+        FgpUtil/Dependencies/org/gusdb/base-pom/1.0.0  (22 usages found)
+            base-pom-1.0.0.pom  (22 usages found)
+                1 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                2 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+                81 <url>https://raw.github.com/DICE-UNC/DICE-Maven/master/releases</url>
+                297 <!-- Might need this in ApiCommon when we convert to maven
+                619 <groupId>org.apache.maven.plugins</groupId>
+                620 <artifactId>maven-compiler-plugin</artifactId>
+                628 <groupId>org.apache.maven.plugins</groupId>
+                629 <artifactId>maven-war-plugin</artifactId>
+                633 <groupId>org.apache.maven.plugins</groupId>
+                634 <artifactId>maven-source-plugin</artifactId>
+                638 <groupId>org.apache.maven.plugins</groupId>
+                639 <artifactId>maven-site-plugin</artifactId>
+                651 <groupId>org.apache.maven.plugins</groupId>
+                652 <artifactId>maven-javadoc-plugin</artifactId>
+                671 <artifactId>enunciate-maven-plugin</artifactId>
+                690 <artifactId>jacoco-maven-plugin</artifactId>
+                718 <!--This plugin's configuration is used to store Eclipse m2e settings only. It has no influence on the Maven build itself.-->
+                729 <artifactId>enunciate-maven-plugin</artifactId>
+                750 <groupId>org.apache.maven.plugins</groupId>
+                751 <artifactId>maven-project-info-reports-plugin</artifactId>
+                784 <groupId>org.apache.maven.plugins</groupId>
+                785 <artifactId>maven-javadoc-plugin</artifactId>
+        FgpUtil/Dependencies/org/gusdb/base-pom/30.0  (22 usages found)
+            base-pom-30.0.pom  (22 usages found)
+                1 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                2 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+                81 <url>https://raw.github.com/DICE-UNC/DICE-Maven/master/releases</url>
+                232 <!-- Might need this in ApiCommon when we convert to maven
+                500 <groupId>org.apache.maven.plugins</groupId>
+                501 <artifactId>maven-compiler-plugin</artifactId>
+                509 <groupId>org.apache.maven.plugins</groupId>
+                510 <artifactId>maven-war-plugin</artifactId>
+                514 <groupId>org.apache.maven.plugins</groupId>
+                515 <artifactId>maven-source-plugin</artifactId>
+                519 <groupId>org.apache.maven.plugins</groupId>
+                520 <artifactId>maven-site-plugin</artifactId>
+                525 <groupId>org.apache.maven.plugins</groupId>
+                526 <artifactId>maven-project-info-reports-plugin</artifactId>
+                555 <groupId>org.apache.maven.plugins</groupId>
+                556 <artifactId>maven-javadoc-plugin</artifactId>
+                563 <groupId>org.apache.maven.plugins</groupId>
+                564 <artifactId>maven-javadoc-plugin</artifactId>
+                581 <artifactId>enunciate-maven-plugin</artifactId>
+                600 <artifactId>jacoco-maven-plugin</artifactId>
+                628 <!--This plugin's configuration is used to store Eclipse m2e settings only. It has no influence on the Maven build itself.-->
+                639 <artifactId>enunciate-maven-plugin</artifactId>
+        FgpUtil/Dependencies/org/gusdb/fgputil-util/30.0  (2 usages found)
+            fgputil-util-30.0.pom  (2 usages found)
+                1 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                2 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+        install  (18 usages found)
+            build.xml  (18 usages found)
+                2 xmlns:artifact="antlib:org.apache.maven.artifact.ant">
+                28 <path id="maven-ant-tasks.classpath" path="lib/maven-ant-tasks-2.1.3.jar" />
+                29 <typedef resource="org/apache/maven/artifact/ant/antlib.xml"
+                30 uri="antlib:org.apache.maven.artifact.ant"
+                31 classpathref="maven-ant-tasks.classpath"/>
+                223 <!-- Note: Maven-based projects should be built at the project level in the  -->
+                225 <!--       code similar to that below.  If this is not done, Maven-based     -->
+                228 <!--       will cause Maven components to be built twice: at the project     -->
+                395 <antcall target="defaultJavaCompile"/>   <!-- will run if non-maven -->
+                453 <echo message="Java source found in non-maven component.  Building traditional way..."/>
+                593 <!-- For now can only build docs for maven projects -->
+                631 <!-- ooooooooooooooooooo Maven-related targets ooooooooooooooooooooooo -->
+                655 <echo>Building Maven Project: ${project}</echo>
+                656 <!-- build the project with maven -->
+                673 <echo>Building Maven Component: ${project}/${component}, Already built? ${alreadyBuilt}</echo>
+                711 <!-- gather dependencies from this maven project -->
+                1094 and (optionally) into your local Maven repository.
+                1107 <echo>Installing local ${oracle.driver.name}.jar into local Maven repository</echo>

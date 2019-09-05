@@ -13,7 +13,9 @@ Elizabeth Harper <epharper@upenn.edu>
 :docPage: {docSrc}/readme.html
 :javaPlatDocs: https://docs.gradle.org/current/userguide/java_platform_plugin.html
 :cpanGitUse: https://metacpan.org/pod/distribution/App-cpanminus/bin/cpanm
-:searchAnt: {docSrc}/blob/master/search-results/ant.txt
+:searchRes: {docSrc}/blob/master/search-results
+:searchAnt: {searchRes}/ant.txt
+:searchMaven: {searchRes}/maven.txt
 
 
 
@@ -56,8 +58,9 @@ At this point in time the Gradle distribution will follow
 the standard practice of including a base version in the
 source repository.
 
-WARNING: TODO: get a list of all scripts that call Maven
-  directly
+{searchMaven}[All references to Maven] will need to be
+removed or updated at this time.
+
 
 ==== Impact on Servers
 
@@ -66,6 +69,10 @@ None as Gradle will be included with the source code.
 For developer convenience (potentially faster builds) it may
 be nice to have Gradle installed on the development servers,
 but this is not required.
+
+WARNING: TODO: get a list of all non-project scripts that
+  call Maven directly
+
 
 ==== Impact on Jenkins
 
