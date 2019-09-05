@@ -471,7 +471,13 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </ul>
 </li>
 <li><a href="#_questions">Questions</a></li>
-<li><a href="#_definitions">Definitions</a></li>
+<li><a href="#_definitions">Definitions</a>
+<ul class="sectlevel2">
+<li><a href="#condSubst">Conditional Substitution</a></li>
+<li><a href="#gradle">Gradle</a></li>
+<li><a href="#javaPlat">Java Platform</a></li>
+</ul>
+</li>
 </ul>
 </div>
 </div>
@@ -791,8 +797,8 @@ dependencies {
 <div class="sect2">
 <h3 id="_bundling_of_non_java_project_code">Bundling of non-java project code</h3>
 <div class="paragraph">
-<p>With &lt;&lt;gar&#8217;s customizable nature, additional compile tasks
-can be added for non-Java source code.</p>
+<p>With <a href="#gradle">Gradle</a>'s customizable nature, additional
+compile tasks can be added for non-Java source code.</p>
 </div>
 <div class="paragraph">
 <p>In CI additional steps can be performed to publish those
@@ -1050,10 +1056,7 @@ TODO, investigate this further&#8230;&#8203;
 <div class="ulist">
 <ul>
 <li>
-<p>Conifer???</p>
-</li>
-<li>
-<p>Versioning of libs?</p>
+<p>How will conifer fit into this world of separate projects?</p>
 </li>
 <li>
 <p>Factoring builds?</p>
@@ -1062,8 +1065,14 @@ TODO, investigate this further&#8230;&#8203;
 <p>Division of deployments?</p>
 </li>
 <li>
-<p>Triggers for builds?  (build cascade when a dependency)
-Does conditional substitution trigger child project builds?</p>
+<p>Triggers for builds?  (build cascade when a dependency)</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Does conditional substitution trigger child project builds?</p>
+</li>
+</ul>
+</div>
 </li>
 </ul>
 </div>
@@ -1072,12 +1081,12 @@ Does conditional substitution trigger child project builds?</p>
 <div class="sect1">
 <h2 id="_definitions">Definitions</h2>
 <div class="sectionbody">
-<div class="dlist">
-<dl>
-<dt class="hdlist1"><a id="condSubst"></a>Conditional Substitution</dt>
-<dd>
+<div class="sect2">
+<h3 id="condSubst">Conditional Substitution</h3>
+<div class="paragraph">
 <p>A Gradle feature that enables the substitution of one
 dependency with another if some condition is met.</p>
+</div>
 <div class="paragraph">
 <p>In our case this would likely mean using a sibling project
 instead of an artifact if that project exists in your
@@ -1087,22 +1096,26 @@ workspace.</p>
 <p>See <a href="https://medium.com/codequest/Gradle-multi-project-build-substituting-jar-dependencies-with-local-projects-4a5323f8680b">this blog post</a>, or <a href="https://docs.Gradle.org/current/userguide/customizing_dependency_resolution_behavior.html">the
 Gradle docs</a> for a more detailed explanation.</p>
 </div>
-</dd>
-<dt class="hdlist1"><a id="gradle"></a>Gradle</dt>
-<dd>
+</div>
+<div class="sect2">
+<h3 id="gradle">Gradle</h3>
+<div class="paragraph">
 <p>Gradle is a build and dependency management and scripting
 tool specifically designed around working with JVM
 languages.</p>
+</div>
 <div class="paragraph">
 <p>Gradle&#8217;s functionality covers the use cases for both Ant and
 Maven, and is easily extensible to include our custom build
 tasks.</p>
 </div>
-</dd>
-<dt class="hdlist1"><a id="javaPlat"></a>Java Platform</dt>
-<dd>
-<p>The Gradle method of creating a Bill of Materials for a
-project or group of projects.</p>
+</div>
+<div class="sect2">
+<h3 id="javaPlat">Java Platform</h3>
+<div class="paragraph">
+<p>The <a href="#gradle">Gradle</a> method of creating a Bill of Materials
+for a project or group of projects.</p>
+</div>
 <div class="paragraph">
 <p>The Java Platform can be used to define and/or constrain
 projects to a known working set of dependencies.  Similar to
@@ -1113,15 +1126,13 @@ declarations.</p>
 <div class="paragraph">
 <p>See <a href="https://docs.gradle.org/current/userguide/java_platform_plugin.html">the Gradle docs</a> for more information.</p>
 </div>
-</dd>
-</dl>
 </div>
 </div>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2019-09-05 10:16:19 -0400
+Last updated 2019-09-05 10:21:50 -0400
 </div>
 </div>
 </body>

@@ -18,9 +18,9 @@ Elizabeth Harper <epharper@upenn.edu>
 :searchMaven: {searchRes}/maven.txt
 
 
-
 Document Render: {docPage} +
 Document Source: {docSrc}
+
 
 == Goals
 
@@ -211,8 +211,8 @@ dependencies {
 
 === Bundling of non-java project code
 
-With <<gar's customizable nature, additional compile tasks
-can be added for non-Java source code.
+With <<gradle,Gradle>>'s customizable nature, additional
+compile tasks can be added for non-Java source code.
 
 In CI additional steps can be performed to publish those
 components as bundles or packages as per the standard
@@ -385,48 +385,55 @@ WARNING: TODO, investigate this further...
 
 == Questions
 
-- Conifer???
+* How will conifer fit into this world of separate projects?
 
-- Versioning of libs?
+* Factoring builds?
 
-- Factoring builds?
+* Division of deployments?
 
-- Division of deployments?
-
-- Triggers for builds?  (build cascade when a dependency)
-  Does conditional substitution trigger child project builds?
+* Triggers for builds?  (build cascade when a dependency)
+** Does conditional substitution trigger child project builds?
 
 
 == Definitions
 
-[[condSubst]]Conditional Substitution::
+
+[#condSubst]
+=== Conditional Substitution
+
 A Gradle feature that enables the substitution of one
 dependency with another if some condition is met.
-+
+
 In our case this would likely mean using a sibling project
 instead of an artifact if that project exists in your
 workspace.
-+
+
 See {condSubstBlog}[this blog post], or {condSubstDocs}[the
 Gradle docs] for a more detailed explanation.
 
-[[gradle]]Gradle::
+
+[#gradle]
+=== Gradle
+
 Gradle is a build and dependency management and scripting
 tool specifically designed around working with JVM
 languages.
-+
+
 Gradle's functionality covers the use cases for both Ant and
 Maven, and is easily extensible to include our custom build
 tasks.
 
-[[javaPlat]]Java Platform::
-The Gradle method of creating a Bill of Materials for a
-project or group of projects.
-+
+
+[#javaPlat]
+=== Java Platform
+
+The <<gradle,Gradle>> method of creating a Bill of Materials
+for a project or group of projects.
+
 The Java Platform can be used to define and/or constrain
 projects to a known working set of dependencies.  Similar to
 our base-pom files, our dependency versions can be declared
 here and omitted from individual project dependency
 declarations.
-+
+
 See {javaPlatDocs}[the Gradle docs] for more information.
