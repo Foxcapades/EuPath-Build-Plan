@@ -125,8 +125,8 @@ Any Ant calls will now be made through Gradle.
 
 === Part 3: Scripts to Gradle
 
-Convert the custom wrapper and helper scripts into <<gar
-actions.
+Convert the custom wrapper and helper scripts into <<gradle,
+Gradle>> actions.
 
 This will mean custom (Java) code will need to be written.
 This code will be created as a Gradle plugin and published
@@ -164,9 +164,9 @@ Scripts that users call will be converted to gradle actions.
 
 === Part 4: Split the monolith
 
-Take each project's <<gar build and convert its dependency
-on sibling projects into artifact dependencies with
-<<#condSubst,Conditional Substitution>>.
+Take each project's <<gradle,Gradle>> build and convert its
+dependency on sibling projects into artifact dependencies
+with <<#condSubst,Conditional Substitution>>.
 
 .Early phase Gradle dependency
 [source, groovy]
