@@ -36,7 +36,7 @@ Document Source: {docSrc}
 
 === Part 1: Maven to Gradle
 
-Exchange the maven pom files for Gradle builds.  Parts of
+Exchange the maven pom files for <<gradle,Gradle>> builds.  Parts of
 the Ant build that call to maven will now call to Gradle.
 
 Gradle projects will declare their project dependencies and
@@ -64,7 +64,7 @@ removed or updated at this time.
 
 ==== Impact on Servers
 
-None as Gradle will be included with the source code.
+None as <<gradle,Gradle>> will be included with the source code.
 
 For developer convenience (potentially faster builds) it may
 be nice to have Gradle installed on the development servers,
@@ -88,7 +88,7 @@ Potentially faster project build times.
 
 === Part 2: Ant to Gradle
 
-Convert the build XML declarations into Gradle actions.
+Convert the build XML declarations into <<gradle,Gradle>> actions.
 
 At this point, custom scripts will be left alone, calls to
 them will be maintained, and converted to calls from Gradle.
@@ -125,7 +125,7 @@ Any Ant calls will now be made through Gradle.
 
 === Part 3: Scripts to Gradle
 
-Convert the custom wrapper and helper scripts into Gradle
+Convert the custom wrapper and helper scripts into <<gar
 actions.
 
 This will mean custom (Java) code will need to be written.
@@ -164,7 +164,7 @@ Scripts that users call will be converted to gradle actions.
 
 === Part 4: Split the monolith
 
-Take each project's Gradle build and convert its dependency
+Take each project's <<gar build and convert its dependency
 on sibling projects into artifact dependencies with
 <<#condSubst,Conditional Substitution>>.
 
@@ -201,8 +201,6 @@ dependencies {
 ----
 
 
-
-
 === Part 5: Deployments
 
 
@@ -213,8 +211,7 @@ dependencies {
 
 === Bundling of non-java project code
 
-
-With Gradle's customizable nature, additional compile tasks
+With <<gar's customizable nature, additional compile tasks
 can be added for non-Java source code.
 
 In CI additional steps can be performed to publish those
@@ -228,7 +225,9 @@ When we migrate towards a separate build/deploy strategy
 we will need to have a system in place to host, version, and
 update these dependencies.
 
+
 ==== Possible approaches by language
+
 
 ===== Perl
 
@@ -236,6 +235,7 @@ With Perl we have a couple of options available to us.  We
 can use a private CPAN repository, or alternatively, we can
 split the Perl code into separate git repositories and
 depend on it {cpanGitUse}[via git itself].
+
 
 ====== Versioning
 
@@ -245,6 +245,7 @@ maintain releases or different versions.  Using a private
 CPAN repository, we would need to come up with a concrete
 versioning strategy.
 
+
 ===== JavaScript/TypeScript
 
 This is already handled for us via NPM or Yarn.  Similarly
@@ -252,21 +253,26 @@ to Perl, we may desire to host our JavaScript & TypeScript
 code in a private NPM repository, or split that code out and
 just use git.
 
+
 ==== R
 
 WARNING: TODO
+
 
 ==== C
 
 WARNING: TODO
 
+
 ==== Python
 
 WARNING: TODO
 
+
 ==== Others?
 
 WARNING: TODO
+
 
 === Artifact Versioning
 
@@ -274,8 +280,8 @@ WARNING: Everything about this needs to be discussed.  The
   below sections outline a rough idea that may work for our
   team.
 
-==== Releases
 
+==== Releases
 
 For releases, artifacts will be built using the version
 format `<siteRelease>.<artifactBuild>` or, for example
@@ -336,50 +342,6 @@ version of that dependency.
 
 
 == New Tools
-
-
-=== Gradle
-
-Build / dependency management tool.  Can be used as a
-replacement for Maven, Ant, and many of our custom wrapper
-scripts and tools.
-
-Gradle is a JVM language oriented build manager, but can be
-and is used for non-jvm build and dependency management.
-
-==== Features
-
-Dependency Management::
-  * Primarily uses Maven repositories for retrieving
-    dependencies, and follows traditional Maven versioning
-    behavior
-  * can be extended through many plugins to pull from
-    different source types, such as a git repo, npm, etc..
-  
-Artifact Builds::
-  * Comes with a default suite of build functionalities
-    that cover most common cases
-  * can be easily extended inline, with custom, project
-    specific code, or with easily constructed plugins
-  
-Artifact Publishing::
-  * Can be used to push new builds to an artifact
-    repository, though traditionally the CI would be the
-    only one to perform this specific task
-
-Extensibility::
-  * Gradle builds can be customized or extended using
-    project-local scripts or plugins using most JVM
-    languages.  Extending a build or providing extra
-    utilities can be easily done with just a single java
-    file if desired.
-
-Faster Builds::
-  * Gradle will attempt to build projects or components in
-    parallel when applicable.
-  * Gradle is also clever about what actually needs to be
-    rebuilt, with a `make` like behavior, only classes that
-    actually changed will be rebuilt.
 
 
 === Artifact Repositories
@@ -447,6 +409,15 @@ workspace.
 +
 See {condSubstBlog}[this blog post], or {condSubstDocs}[the
 Gradle docs] for a more detailed explanation.
+
+[[gradle]]Gradle::
+Gradle is a build and dependency management and scripting
+tool specifically designed around working with JVM
+languages.
++
+Gradle's functionality covers the use cases for both Ant and
+Maven, and is easily extensible to include our custom build
+tasks.
 
 [[javaPlat]]Java Platform::
 The Gradle method of creating a Bill of Materials for a
