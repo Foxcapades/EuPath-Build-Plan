@@ -225,6 +225,9 @@ When we migrate towards a separate build/deploy strategy
 we will need to have a system in place to host, version, and
 update these dependencies.
 
+Non-package-based dependencies such as shell scripts will
+be pulled at deploy time by the deployment script.
+
 
 ==== Possible approaches by language
 
@@ -384,6 +387,14 @@ WARNING: TODO, investigate this further...
 
 
 == Questions
+
+* Depending on different language dependencies?
+** These are runtime dependencies and the bundling of the
+   deployable package will be managed by the deployment
+   script.
++
+Perhaps this means we should split repositories in git along
+language lines?
 
 * How will conifer fit into this world of separate projects?
 

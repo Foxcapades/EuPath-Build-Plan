@@ -814,6 +814,10 @@ will be treated as they are in the current build process.</p>
 we will need to have a system in place to host, version, and
 update these dependencies.</p>
 </div>
+<div class="paragraph">
+<p>Non-package-based dependencies such as shell scripts will
+be pulled at deploy time by the deployment script.</p>
+</div>
 <div class="sect3">
 <h4 id="_possible_approaches_by_language">Possible approaches by language</h4>
 <div class="sect4">
@@ -1056,6 +1060,22 @@ TODO, investigate this further&#8230;&#8203;
 <div class="ulist">
 <ul>
 <li>
+<p>Depending on different language dependencies?</p>
+<div class="ulist">
+<ul>
+<li>
+<p>These are runtime dependencies and the bundling of the
+deployable package will be managed by the deployment
+script.</p>
+<div class="paragraph">
+<p>Perhaps this means we should split repositories in git along
+language lines?</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
 <p>How will conifer fit into this world of separate projects?</p>
 </li>
 <li>
@@ -1132,7 +1152,7 @@ declarations.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2019-09-05 10:22:52 -0400
+Last updated 2019-09-05 10:53:26 -0400
 </div>
 </div>
 </body>
