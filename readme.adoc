@@ -147,11 +147,56 @@ WARNING: TODO: Get a list of all non-project calls to both
   project and non-project wrapper scripts
 
 
+==== Impact on Jenkins
+
+WARNING: TODO: figure this out!
+
+
+==== Impact on Developers
+
+
+WARNING: Find out what scripts users actually call anymore
+  many may be stripped out entirely.
+
+
+Scripts that users call will be converted to gradle actions.
+
+
 === Part 4: Split the monolith
 
 Take each project's Gradle build and convert its dependency
 on sibling projects into artifact dependencies with
 <<#condSubst,Conditional Substitution>>.
+
+.Early phase Gradle dependency
+[source, groovy]
+----
+dependencies {
+  compile project(':FgpUtil.Util')
+  compile project(':WDK.Model')
+  compile project(':WDK.Service')
+  ...
+}
+----
+
+.Late phase Gradle dependency
+[source, groovy]
+----
+configurations.all {
+  dependencies.compile { -> 
+    substitute module(it.name) with project("${it.group}.${it.name}")
+  }
+}
+
+dependencies {
+  compile 'org.gusdb.FgpUtil:Util'
+  compile 'org.gusdb.WDK:Model'
+  compile 'org.gusdb.WDK:Service'
+  ...
+}
+----
+
+
 
 
 === Part 5: Deployments

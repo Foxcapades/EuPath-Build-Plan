@@ -706,6 +706,40 @@ TODO: Get a list of all non-project calls to both
 </table>
 </div>
 </div>
+<div class="sect3">
+<h4 id="_impact_on_jenkins_3">Impact on Jenkins</h4>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+TODO: figure this out!
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_impact_on_developers_3">Impact on Developers</h4>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+Find out what scripts users actually call anymore
+  many may be stripped out entirely.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Scripts that users call will be converted to gradle actions.</p>
+</div>
+</div>
 </div>
 <div class="sect2">
 <h3 id="_part_4_split_the_monolith">Part 4: Split the monolith</h3>
@@ -713,6 +747,34 @@ TODO: Get a list of all non-project calls to both
 <p>Take each project&#8217;s Gradle build and convert its dependency
 on sibling projects into artifact dependencies with
 <a href="#condSubst">Conditional Substitution</a>.</p>
+</div>
+<div class="listingblock">
+<div class="title">Early phase Gradle dependency</div>
+<div class="content">
+<pre class="highlight"><code class="language-groovy" data-lang="groovy">dependencies {
+  compile project(':FgpUtil.Util')
+  compile project(':WDK.Model')
+  compile project(':WDK.Service')
+  ...
+}</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Late phase Gradle dependency</div>
+<div class="content">
+<pre class="highlight"><code class="language-groovy" data-lang="groovy">configurations.all {
+  dependencies.compile { -&gt;
+    substitute module(it.name) with project("${it.group}.${it.name}")
+  }
+}
+
+dependencies {
+  compile 'org.gusdb.FgpUtil:Util'
+  compile 'org.gusdb.WDK:Model'
+  compile 'org.gusdb.WDK:Service'
+  ...
+}</code></pre>
+</div>
 </div>
 </div>
 <div class="sect2">
@@ -1138,7 +1200,7 @@ declarations.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2019-09-05 09:50:36 -0400
+Last updated 2019-09-05 10:04:58 -0400
 </div>
 </div>
 </body>
