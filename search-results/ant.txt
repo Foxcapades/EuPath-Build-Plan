@@ -1,0 +1,96 @@
+Targets
+    Occurrences of 'ant' in Project with mask '!build.xml'
+Found Occurrences  (43 usages found)
+    Unclassified occurrence  (26 usages found)
+        EbrcWebsiteCommon/Site/dashboard/view  (1 usage found)
+            buildInfo.php  (1 usage found)
+                60 Any subversion working directories in project_home that are not defined as dependencies in the GUS/Ant build will not be listed.
+        EbrcWebsiteCommon/Watar  (5 usages found)
+            Readme  (5 usages found)
+                7 ant -file $PROJECT_HOME/EbrcWebsiteCommon/Watar/build.xml \
+                16 ant -file $PROJECT_HOME/EbrcWebsiteCommon/Watar/build.xml \
+                28 !! run specified methods without ant
+                40 ant -file $PROJECT_HOME/EbrcWebsiteCommon/Watar/build.xml \
+                53 !! testnames (when using testbynames ant target) are
+        GusAppFramework/Community/MagetabConverter/Magetab2Xml  (2 usages found)
+            README  (2 usages found)
+                7 5.  ant jar
+                32     ant build.
+        GusAppFramework/DB2BiomatGraph  (1 usage found)
+            README  (1 usage found)
+                6 2.  Run ant jar
+        GusAppFramework/DBAdmin/src/java/org/gusdb/dbadmin/util  (2 usages found)
+            InstallSchemaTask.java  (2 usages found)
+                18 import org.apache.tools.ant.BuildException;
+                19 import org.apache.tools.ant.Task;
+        GusAppFramework/Documentation/books  (2 usages found)
+            installguide.xml  (2 usages found)
+                262 <para>Apache Ant 1.6.2 or above (<ulink
+                263 url="http://ant.apache.org">ant.apache.org</ulink>)</para>
+        GusAppFramework/Website/documentation/3.5/install  (1 usage found)
+            installguide.html  (1 usage found)
+                39 Ant
+        GusAppFramework/Website/documentation/3.5/install/html  (2 usages found)
+            ch02.html  (1 usage found)
+                25 Ant
+            installguide.html  (1 usage found)
+                31 Ant
+        GusAppFramework/Website/documentation/older  (8 usages found)
+            installguide_TC.html  (1 usage found)
+                120 Note the requirements for <tt>Java</tt> and <tt>Ant</tt>. 
+            installguide_UGA.html  (7 usages found)
+                24 </li><li> Ant build tool
+                588 place for gus installation. The GUS build system (ANT based) allows
+                776 </p><pre>        4) Set the PATH variable if you want to be able to conveniently run the            Java WSDP executables (startup.sh, shutdown.sh, ant, etc.) from any 
+                787 <a name="section-3"><h1>ANT JAVA BASED BUILD TOOL</h1></a>
+                789 <p>Download Ant build tool version 1.5.1 for building (compilation) and
+                791 http://ant.apache.org/bindownload.cgi.
+                793 Note: GUS 3.0 is tested with Ant 1.5.1 version and is used as the build tool at CBIL and CTEGD. 
+        WDKTemplateSite/Model/bin  (2 usages found)
+            installTemplateSite  (2 usages found)
+                79 check ant
+                80 ant -version
+    Usage in comments  (9 usages found)
+        GBrowse/src/BioPerl/Bio/Biblio/IO  (1 usage found)
+            medline2ref.pm  (1 usage found)
+                313 # is stored in a separate attribute without ant conversion.
+        install/bin  (7 usages found)
+            build  (1 usage found)
+                3 # A wrapper around the perl wrapper around ant.  Avoids assumptions of perl's
+            build.bat  (1 usage found)
+                3 rem A wrapper around the perl wrapper around ant.  Avoids assumptions of perl's
+            build.pl  (2 usages found)
+                4 # A convenience wrapper around ant.  Simplifies the input args.
+                38 # only lines with bracketed ant target name (ie, ditch its commentary).
+            gussvn  (1 usage found)
+                3 # A wrapper around the perl wrapper around ant.  Avoids assumptions of perl's
+            gussvn.pl  (2 usages found)
+                4 # A convenience wrapper around ant.  Simplifies the input args.
+                33 # only lines with bracketed ant target name (ie, ditch its commentary).
+        WDKTemplateSite/Model/bin  (1 usage found)
+            installTemplateSite  (1 usage found)
+                78 # Ant
+    Usage in string constants  (7 usages found)
+        GusAppFramework/DBAdmin  (1 usage found)
+            .classpath  (1 usage found)
+                9 <classpathentry kind="lib" path="lib/java/ant-1.9.2.jar"/>
+        GusAppFramework/Documentation/books  (1 usage found)
+            installguide.xml  (1 usage found)
+                263 url="http://ant.apache.org">ant.apache.org</ulink>)</para>
+        GusAppFramework/Website/documentation/3.5/install  (1 usage found)
+            installguide.html  (1 usage found)
+                39 ant
+        GusAppFramework/Website/documentation/3.5/install/html  (2 usages found)
+            ch02.html  (1 usage found)
+                25 ant
+            installguide.html  (1 usage found)
+                31 ant
+        install/bin  (2 usages found)
+            build.pl  (1 usage found)
+                35 ant
+            gussvn.pl  (1 usage found)
+                29 ant
+    Occurrence in XML descriptor  (1 usage found)
+        WDK  (1 usage found)
+            psu.xml  (1 usage found)
+                5 <property name="build.home"    value="${basedir}/ant-build"/>
