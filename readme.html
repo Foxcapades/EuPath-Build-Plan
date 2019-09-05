@@ -764,7 +764,9 @@ on sibling projects into artifact dependencies with
 <div class="content">
 <pre class="highlight"><code class="language-groovy" data-lang="groovy">configurations.all {
   dependencies.compile { -&gt;
-    substitute module(it.name) with project("${it.group}.${it.name}")
+    if it.location.exists {
+      substitute module(it.name) with project("${it.group}.${it.name}")
+    }
   }
 }
 
@@ -1200,7 +1202,7 @@ declarations.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2019-09-05 10:04:58 -0400
+Last updated 2019-09-05 10:06:11 -0400
 </div>
 </div>
 </body>

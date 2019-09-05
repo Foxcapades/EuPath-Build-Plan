@@ -183,8 +183,10 @@ dependencies {
 [source, groovy]
 ----
 configurations.all {
-  dependencies.compile { -> 
-    substitute module(it.name) with project("${it.group}.${it.name}")
+  dependencies.compile { ->
+    if it.location.exists {
+      substitute module(it.name) with project("${it.group}.${it.name}")
+    }
   }
 }
 
