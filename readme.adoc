@@ -133,8 +133,18 @@ This code will be created as a Gradle plugin and published
 to our internal Maven server so as to be made available to
 all project builds.
 
-WARNING: TODO: Find out what scripts exist on the servers
-  that call Ant, Maven, or other build scripts.
+WARNING: TODO: Get a list of all project wrapper scripts
+
+WARNING: TODO: Get a list of all project calls to those
+  wrapper scripts
+
+
+==== Impact on Servers
+
+WARNING: TODO: Get a list of all non-project wrapper scripts
+
+WARNING: TODO: Get a list of all non-project calls to both
+  project and non-project wrapper scripts
 
 
 === Part 4: Split the monolith
