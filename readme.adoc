@@ -194,6 +194,7 @@ configurations.all {
   }
 }
 
+// Otherwise default to compiled jar
 dependencies {
   compile 'org.gusdb.FgpUtil:Util'
   compile 'org.gusdb.WDK:Model'
@@ -205,6 +206,18 @@ dependencies {
 
 === Part 5: Deployments
 
+Using a Gradle task on the root projects themselves, a
+separate 'deploy' project, or some other tool if we are okay
+with duplicating our dependency list, we can build a tar or
+tars that bundle the required components for a site. Jenkins
+can then copy the tar(s) to the desired location and run any
+existing post build steps (such as WDKCache).
+
+[WARNING]
+TODO: +
+How will conifer fit into this? +
+can it be moved to a post step? +
+how much work would that be?
 
 
 
