@@ -24,6 +24,12 @@ digraph {
   tCat[label=Tomcat]
   git[label=Git]
   anspl[label="Ansible Playbook"]
+  rsync
+  chmod
+  nde[label="NodeJS"]
+  tng[label="TestNG"]
+  junit[label="JUnit"]
+
 
   // Scripts
   igb[label=install_gbrowse]
@@ -36,7 +42,12 @@ digraph {
   jbsh[label="JBrowse setup.sh"]
   igdd[label=install_GDD]
   build
-  
+  cc
+  cvs
+  tar
+  gzip
+  ln
+
   //
   // Layout
   //
@@ -108,10 +119,20 @@ digraph {
   ant->webpack
   ant->phpdoc
   ant->jbsh
+  ant->cc
+  ant->cvs
+  ant->tar
+  ant->gzip
+  ant->nde
+  ant->tng
+  ant->junit
+  ant->ln
 
 
   // Conifer
   conifer->anspl
+  conifer->rsync
+  conifer->chmod
 
 
   // Maven
