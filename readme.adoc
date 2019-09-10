@@ -11,7 +11,7 @@ Elizabeth Harper <epharper@upenn.edu>
 :condSubstBlog: https://medium.com/codequest/Gradle-multi-project-build-substituting-jar-dependencies-with-local-projects-4a5323f8680b
 :condSubstDocs: {gradleDocRoot}/customizing_dependency_resolution_behavior.html
 :docSrc: https://github.com/Foxcapades/EuPath-Build-Plan
-:docPage: https://Foxcapades.github.io/EuPath-Build-Plan/readme.html
+:docPage: https://Foxcapades.github.io/EuPath-Build-Plan
 :javaPlatDocs: https://docs.gradle.org/current/userguide/java_platform_plugin.html
 :cpanGitUse: https://metacpan.org/pod/distribution/App-cpanminus/bin/cpanm
 :searchRes: {docSrc}/blob/master/search-results

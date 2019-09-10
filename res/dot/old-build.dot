@@ -23,6 +23,7 @@ digraph {
   phpdoc
   tCat[label=Tomcat]
   git[label=Git]
+  anspl[label="Ansible Playbook"]
 
   // Scripts
   igb[label=install_gbrowse]
@@ -108,9 +109,15 @@ digraph {
   ant->phpdoc
   ant->jbsh
 
+
+  // Conifer
+  conifer->anspl
+
+
   // Maven
   maven->mCentral
   maven->javac
+
 
   // Yarn
 }
