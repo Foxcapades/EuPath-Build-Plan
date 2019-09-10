@@ -1,0 +1,31 @@
+@startuml
+  (*) --> "rebuilder"
+  --> "build.pl"
+  --> "ant webinstall"
+
+  partition ProjectInstall {
+    --> "{project}-Installation"
+    --> "webinstall dependencies"
+    -.->"ant webinstall"
+  }
+
+  partition defaultComponentInstall {
+    "webinstall dependencies" --> "cp bin/"
+      --> "cp lib/xml/"
+      --> "cp lib/rng/"
+      --> "cp lib/yaml/"
+      --> "cp lib/dst/"
+      --> "cp ontology/"
+      --> "cp lib/gbrowse/"
+      --> "cp lib/jbrowse/"
+      --> "cp lib/xsl/"
+      --> "cp lib/sql/"
+      --> "cp lib/wdk/"
+      --> "chmod +x bin/*"
+      --> "cp lib/perl/"
+      --> "cp lib/conifer"
+      --> "cp lib/snakemake/workflows"
+      -->
+
+  }
+@enduml

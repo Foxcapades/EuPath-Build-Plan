@@ -379,6 +379,9 @@ language lines?
 * Triggers for builds?  (build cascade when a dependency)
 ** Does conditional substitution trigger child project builds?
 
+* Should conifer be split out of FgpUtil into it's own project?
+** Should all non-java stuff in FgpUtil be split into it's own project?
+
 
 == Definitions
 
@@ -439,3 +442,4 @@ here and omitted from individual project dependency
 declarations.
 
 See {javaPlatDocs}[the Gradle docs] for more information.
+

@@ -1,0 +1,116 @@
+digraph {
+  node[shape=rect]
+  splines=ortho
+  ranksep=1
+  nodesep=0.7
+
+  //
+  // Components
+  //
+
+  // Systems
+  jenkins[label=Jenkins,style=dashed]
+  mCentral[label="Maven Central",shape=cylinder]
+  svn[label=SVN,shape=cylinder]
+
+  // Tools
+  maven[label="Maven"]
+  ant[label=Ant]
+  javac[label=javac]
+  yarn[label="Yarn"]
+  npm[label=NPM]
+  webpack
+  phpdoc
+  tCat[label=Tomcat]
+  git[label=Git]
+
+  // Scripts
+  igb[label=install_gbrowse]
+  igb2[label=install_gbrowse2]
+  conf[label=configula]
+  reb[label=rebuilder]
+  conifer[label=conifer]
+  wdkCache
+  ggo[label=generateGusObjects]
+  jbsh[label="JBrowse setup.sh"]
+  igdd[label=install_GDD]
+  build
+  
+  //
+  // Layout
+  //
+
+  // Grid
+  {
+    // C000
+    // H001
+    // H002
+    // H003
+    // H004
+    // H005
+    // H006
+    // H007
+    // H008
+
+    // V001
+    // V002
+    // V003
+    // V004
+    // V005
+    // { rank=same C000->H001->H002->H003->H004->H005->H006->H007->H008 }
+    // { C000->V001->V002->V003->V004->V005 }
+  }
+
+  // Order Fixing
+  {
+    // edge[style=invis]
+    // H1->H2->R
+    // H1->V->D
+    // H2->M
+    // J->Y
+  }
+
+  //
+  // Connections
+  //
+
+  // Jenkins
+  jenkins->svn[style=dashed,arrowhead=empty]
+  jenkins->reb[style=dashed,arrowhead=empty]
+
+
+  // Rebuilder
+  reb->git
+  reb->tCat
+  reb->svn
+  reb->npm
+  reb->ant
+  reb->conf
+  reb->igb
+  reb->igb2
+  reb->igdd
+  reb->build
+
+
+  // build / bld / build.pl
+  build->ant
+
+
+  // Ant
+  ant->svn
+  ant->maven
+  ant->yarn
+  ant->ggo
+  ant->javac
+  ant->conifer
+  ant->wdkCache
+  ant->webpack
+  ant->phpdoc
+  ant->jbsh
+
+  // Maven
+  maven->mCentral
+  maven->javac
+
+  // Yarn
+}
